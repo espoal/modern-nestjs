@@ -2,6 +2,8 @@
 dist/*
 !dist/.yarnrc.yml
 !dist/yarn.lock
+!dist/package.json
+!dist/.gitignore
 
 
 # Intellj

@@ -159,6 +159,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@libs/build@workspace:^, @libs/build@workspace:libs/build":
+  version: 0.0.0-use.local
+  resolution: "@libs/build@workspace:libs/build"
+  dependencies:
+    "@yarnpkg/esbuild-plugin-pnp": "npm:^3.0.0-rc.15"
+    esbuild: "npm:^0.17.4"
+  languageName: unknown
+  linkType: soft
+
 "@rometools/cli-darwin-arm64@npm:11.0.0":
   version: 11.0.0
   resolution: "@rometools/cli-darwin-arm64@npm:11.0.0"
@@ -201,11 +210,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"build@workspace:libs/build":
-  version: 0.0.0-use.local
-  resolution: "build@workspace:libs/build"
+"@yarnpkg/esbuild-plugin-pnp@npm:^3.0.0-rc.15":
+  version: 3.0.0-rc.15
+  resolution: "@yarnpkg/esbuild-plugin-pnp@npm:3.0.0-rc.15"
   dependencies:
-    esbuild: "npm:^0.17.4"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    esbuild: ">=0.10.0"
+  checksum: 27a456a5cc38878109b702e08cd577a0e9b32607a57809d75b22286a0089b1b7e7bf7c75627b123a39e1837f8162a42ca4fc3ef2715f61c80b2d7a7621ae46b2
+  languageName: node
+  linkType: hard
+
+"dist@workspace:dist":
+  version: 0.0.0-use.local
+  resolution: "dist@workspace:dist"
   languageName: unknown
   linkType: soft
 
@@ -286,6 +304,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hello@workspace:packages/hello":
+  version: 0.0.0-use.local
+  resolution: "hello@workspace:packages/hello"
+  languageName: unknown
+  linkType: soft
+
 "main@workspace:main":
   version: 0.0.0-use.local
   resolution: "main@workspace:main"
@@ -296,6 +320,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "modern-nestjs@workspace:."
   dependencies:
+    "@libs/build": "workspace:^"
     rome: "npm:^11.0.0"
     typescript: "npm:^4.9.4"
   languageName: unknown
@@ -327,6 +352,13 @@ __metadata:
   bin:
     rome: bin/rome
   checksum: 82e8ac6fc00c8212ce0cb3a8c76864f4c1d83433a454b14bb746e4af93e84bf193160115438b981ae86fc37cd2e96b2c728a7779b5a354601a39904be2280706
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.4.0":
+  version: 2.4.1
+  resolution: "tslib@npm:2.4.1"
+  checksum: a739a21e3ff059e62c7c3c0845333fbc9c081bcc91e015f2d246a31eeaf1fb0e29b10c0913c7d22f692b3203bb469fd60ca5288aa4f27d351a969df2d0714899
   languageName: node
   linkType: hard
 

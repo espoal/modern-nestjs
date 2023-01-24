@@ -14,18 +14,28 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:."\
     },\
     {\
-      "name": "build",\
+      "name": "dist",\
+      "reference": "workspace:dist"\
+    },\
+    {\
+      "name": "@libs/build",\
       "reference": "workspace:libs/build"\
     },\
     {\
       "name": "main",\
       "reference": "workspace:main"\
+    },\
+    {\
+      "name": "hello",\
+      "reference": "workspace:packages/hello"\
     }\
   ],\
   "enableTopLevelFallback": true,\
   "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)|(^(?:^(?:dist)$)$)",\
   "fallbackExclusionList": [\
-    ["build", ["workspace:libs/build"]],\
+    ["@libs/build", ["workspace:libs/build"]],\
+    ["dist", ["workspace:dist"]],\
+    ["hello", ["workspace:packages/hello"]],\
     ["main", ["workspace:main"]],\
     ["modern-nestjs", ["workspace:."]]\
   ],\
@@ -36,6 +46,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
+          ["@libs/build", "workspace:libs/build"],\
           ["rome", "npm:11.0.0"],\
           ["typescript", "patch:typescript@npm%3A4.9.4#optional!builtin<compat/typescript>::version=4.9.4&hash=ad5954"]\
         ],\
@@ -240,6 +251,17 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@libs/build", [\
+      ["workspace:libs/build", {\
+        "packageLocation": "./libs/build/",\
+        "packageDependencies": [\
+          ["@libs/build", "workspace:libs/build"],\
+          ["@yarnpkg/esbuild-plugin-pnp", "virtual:2d7a1f1a7395495670a999f04b6400271a7202935919564446d3648b7173ab8a73c72f29d583be6cc383f046913c3a782e0fa9c56d0824c1aa5ae0b392004b96#npm:3.0.0-rc.15"],\
+          ["esbuild", "npm:0.17.4"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
     ["@rometools/cli-darwin-arm64", [\
       ["npm:11.0.0", {\
         "packageLocation": "./.yarn/unplugged/@rometools-cli-darwin-arm64-npm-11.0.0-f61083628b/node_modules/@rometools/cli-darwin-arm64/",\
@@ -294,12 +316,34 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["build", [\
-      ["workspace:libs/build", {\
-        "packageLocation": "./libs/build/",\
+    ["@yarnpkg/esbuild-plugin-pnp", [\
+      ["npm:3.0.0-rc.15", {\
+        "packageLocation": "../../../.yarn/berry/cache/@yarnpkg-esbuild-plugin-pnp-npm-3.0.0-rc.15-b916c218b3-9.zip/node_modules/@yarnpkg/esbuild-plugin-pnp/",\
         "packageDependencies": [\
-          ["build", "workspace:libs/build"],\
-          ["esbuild", "npm:0.17.4"]\
+          ["@yarnpkg/esbuild-plugin-pnp", "npm:3.0.0-rc.15"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:2d7a1f1a7395495670a999f04b6400271a7202935919564446d3648b7173ab8a73c72f29d583be6cc383f046913c3a782e0fa9c56d0824c1aa5ae0b392004b96#npm:3.0.0-rc.15", {\
+        "packageLocation": "./.yarn/__virtual__/@yarnpkg-esbuild-plugin-pnp-virtual-fc1dff8b17/4/.yarn/berry/cache/@yarnpkg-esbuild-plugin-pnp-npm-3.0.0-rc.15-b916c218b3-9.zip/node_modules/@yarnpkg/esbuild-plugin-pnp/",\
+        "packageDependencies": [\
+          ["@yarnpkg/esbuild-plugin-pnp", "virtual:2d7a1f1a7395495670a999f04b6400271a7202935919564446d3648b7173ab8a73c72f29d583be6cc383f046913c3a782e0fa9c56d0824c1aa5ae0b392004b96#npm:3.0.0-rc.15"],\
+          ["@types/esbuild", null],\
+          ["esbuild", "npm:0.17.4"],\
+          ["tslib", "npm:2.4.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/esbuild",\
+          "esbuild"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["dist", [\
+      ["workspace:dist", {\
+        "packageLocation": "./dist/",\
+        "packageDependencies": [\
+          ["dist", "workspace:dist"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -335,6 +379,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["hello", [\
+      ["workspace:packages/hello", {\
+        "packageLocation": "./packages/hello/",\
+        "packageDependencies": [\
+          ["hello", "workspace:packages/hello"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
     ["main", [\
       ["workspace:main", {\
         "packageLocation": "./main/",\
@@ -349,6 +402,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["modern-nestjs", "workspace:."],\
+          ["@libs/build", "workspace:libs/build"],\
           ["rome", "npm:11.0.0"],\
           ["typescript", "patch:typescript@npm%3A4.9.4#optional!builtin<compat/typescript>::version=4.9.4&hash=ad5954"]\
         ],\
@@ -366,6 +420,15 @@ const RAW_RUNTIME_STATE =
           ["@rometools/cli-linux-x64", "npm:11.0.0"],\
           ["@rometools/cli-win32-arm64", "npm:11.0.0"],\
           ["@rometools/cli-win32-x64", "npm:11.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["tslib", [\
+      ["npm:2.4.1", {\
+        "packageLocation": "../../../.yarn/berry/cache/tslib-npm-2.4.1-36f0ed04db-9.zip/node_modules/tslib/",\
+        "packageDependencies": [\
+          ["tslib", "npm:2.4.1"]\
         ],\
         "linkType": "HARD"\
       }]\

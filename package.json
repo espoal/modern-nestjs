@@ -3,7 +3,7 @@
   "packageManager": "yarn@4.0.0-rc.36",
   "scripts": {
     "lint": "rome check src/",
-    "lint:fix": "rome format src/ --write",
+    "lint:fix": "rome format --write",
     "build": "node build.mjs",
     "watch": "node build.mjs watch"
   },

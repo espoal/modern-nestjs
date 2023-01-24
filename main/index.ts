@@ -1,7 +1,7 @@
-const a = 1;
+const a = 1
 
-console.log({ a });
+console.log({ a })
 
 if (a == 1) {
-	console.log("a is 2");
+	console.log('a is 2')
 }

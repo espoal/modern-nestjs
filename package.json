@@ -5,7 +5,8 @@
     "lint": "rome check src/",
     "lint:fix": "rome format --write",
     "build": "node build.mjs",
-    "watch": "node build.mjs watch"
+    "watch": "node build.mjs watch",
+    "start": "nest start main/main.ts"
   },
   "workspaces": [
     "dist",
@@ -15,6 +16,7 @@
   ],
   "devDependencies": {
     "@libs/build": "workspace:^",
+    "@nestjs/cli": "^9.1.9",
     "rome": "^11.0.0",
     "typescript": "^4.9.4"
   }

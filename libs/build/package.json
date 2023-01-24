@@ -1,0 +1,7 @@
+{
+  "name": "build",
+  "packageManager": "yarn@4.0.0-rc.36",
+  "dependencies": {
+    "esbuild": "^0.17.4"
+  }
+}

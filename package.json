@@ -1,0 +1,18 @@
+{
+  "name": "modern-nestjs",
+  "packageManager": "yarn@4.0.0-rc.36",
+  "scripts": {
+    "lint": "rome check src/",
+    "lint:fix": "rome format src/ --write"
+  },
+  "workspaces": [
+    "dist",
+    "libs/*",
+    "main",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "rome": "^11.0.0",
+    "typescript": "^4.9.4"
+  }
+}

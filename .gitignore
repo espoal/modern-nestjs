@@ -1,5 +1,5 @@
 # Build
-dist
+dist/*
 !dist/.yarnrc.yml
 !dist/yarn.lock
 
